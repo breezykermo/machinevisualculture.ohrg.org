@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Example Event",
+    "date": "2026-02-27",
+    "description": "Short plain-text description of the event.",
+    "link": "https://example.com/event"
+  }
+]

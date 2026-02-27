@@ -35,6 +35,31 @@
   }
 }
 
+#let std-link = link
+
+#let event-item(title, date, description, link: none) = {
+  context if target() == "html" {
+    html.elem("div", attrs: (class: "event-item"))[
+      #html.elem("div", attrs: (class: "event-meta"))[
+        #if link != none {
+          html.elem("a", attrs: (href: link))[#title]
+        } else {
+          title
+        }
+        #html.elem("span", attrs: (class: "event-date"))[ (#date)]
+      ]
+      #html.elem("p")[#description]
+    ]
+  } else {
+    if link != none [
+      *#std-link(link)[#title]* (#date)\
+    ] else [
+      *#title* (#date)\
+    ]
+    description
+  }
+}
+
 #show: template.with(current-page: "index")
 
 = Machine Visual Culture Research Group
@@ -170,10 +195,20 @@ More information here: #link("https://www.biblhertz.it/en/machine-visual-culture
 
 == Events and News
 
-- Upcoming and past visitors
-- Workshops and internal seminars
-- Conference presentations
-- Public lectures and exhibitions
+#let events = json("events.json")
+
+#if events.len() == 0 [
+  _No events yet._
+] else {
+  for item in events {
+    event-item(
+      item.title,
+      item.date,
+      item.description,
+      link: item.at("link", default: none),
+    )
+  }
+}
 
 == Contact
 

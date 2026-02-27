@@ -37,6 +37,9 @@ rheo compile . --html
 # Copy over images
 cp -r content/img build/html/img
 
+# Generate RSS feed
+python3 generate-feed.py
+
 # Verify output was generated
 if [ ! -f "build/html/index.html" ]; then
   echo "Error: build/html/index.html not found after compilation"

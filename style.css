@@ -210,6 +210,30 @@ section[role="doc-endnotes"] ol li a[role="doc-backlink"] {
 }
 
 /* ============================================
+   Event Items
+   ============================================ */
+.event-item {
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.event-meta {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.event-date {
+  font-weight: normal;
+  color: var(--text-color);
+  opacity: 0.65;
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 600px) {
