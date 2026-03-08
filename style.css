@@ -227,6 +227,10 @@ section[role="doc-endnotes"] ol li a[role="doc-backlink"] {
   border-bottom: none;
 }
 
+.event-item.has-link {
+  border-bottom: 1px solid var(--border-color);
+}
+
 .event-item.has-link:hover {
   background-color: var(--text-color);
   color: var(--background-color);
