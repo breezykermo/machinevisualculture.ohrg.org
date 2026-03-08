@@ -240,6 +240,13 @@ To stay up to date with our research, #link("/feed.xml")[subscribe to our RSS fe
 )
 
 #event(
+  "Rheo at the STAR workshop at CHI 2026",
+  "16 April 2026",
+  [A new paper co-authored by Lachlan Kermode (Predoctoral Fellow in Rome) about #link("https://github.com/freecomputinglab/rheo")[Rheo] (the infrastructure that powers this website) as a basis for augmented reading research will be presented at the #link("https://chi-star-workshop.github.io/")[STAR workshop] at #link("https://chi2026.acm.org/")[CHI 2026] in Barcelona.],
+  event_id: "2026-04-16"
+)
+
+#event(
   "Black Hole | Black Box: Limits, Opacity, and the Unknown Across Art, Science, and Media",
   "19-20 March 2026",
   [This conference examines limits, opacity, and the unknown by bringing together two notions from very different domains: the _black hole_ of astrophysics and the _black box_ of computation in which theoretical and empirical boundaries are reached. ],
