@@ -7,12 +7,12 @@ echo "Timestamp: $(date)"
 
 # Setup paths
 REPO_DIR="$(pwd)"
-TYPST_VERSION="0.12.0"
+TYPST_VERSION="0.14.2"
 TYPST_CACHE="$REPO_DIR/.typst-binary"
 TYPST_BIN="$TYPST_CACHE/typst"
-
-# Use rheo from cargo
-RHEO_BIN="/home/lox/.cargo/bin/rheo"
+RHEO_VERSION="v0.1.2"
+RHEO_CACHE="$REPO_DIR/.rheo-binary"
+RHEO_BIN="$RHEO_CACHE/rheo"
 
 # Download typst binary from GitHub release if not cached
 if [ ! -f "$TYPST_BIN" ]; then
@@ -29,6 +29,23 @@ fi
 
 # Add typst to PATH
 export PATH="$TYPST_CACHE:$PATH"
+
+
+# Download rheo binary from GitHub release if not cached
+if [ ! -f "$RHEO_BIN" ]; then
+  echo "Downloading rheo ${RHEO_VERSION}..."
+  mkdir -p "$RHEO_CACHE"
+  curl -sL "https://github.com/freecomputinglab/rheo/releases/download/${RHEO_VERSION}/rheo-x86_64-unknown-linux-gnu.zip" -o /tmp/rheo.zip
+  unzip -o /tmp/rheo.zip -d "$RHEO_CACHE"
+  chmod +x "$RHEO_BIN"
+  rm /tmp/rheo.zip
+  echo "Rheo downloaded successfully"
+else
+  echo "Using cached rheo binary"
+fi
+
+# Add rheo to PATH
+export PATH="$RHEO_CACHE:$PATH"
 
 # Find Python (for NixOS compatibility)
 PYTHON=""
